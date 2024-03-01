@@ -1,0 +1,8 @@
+
+#Type your answer here.
+
+rng=range(100,5000)
+dict={i:i/100 for i in rng}
+
+
+print(dict)
