@@ -1,0 +1,12 @@
+
+lst=["NY", "FL", "CA", "VT"]
+
+#Type your answer here.
+
+dict={i:i for i in lst}
+
+
+
+print(dict)
+
+
