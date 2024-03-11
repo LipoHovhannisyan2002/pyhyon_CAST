@@ -1,13 +1,21 @@
-from itertools import *
-def permuteOnlyOne(nums):
+def permuteUnique(self, nums):
+    nums.sort()
 
-    l = permutations(nums)
-    visited =[]
-    for i in l:
-        if i not in visited:
-            visited.append(i)
+    stack = [(nums, [])]
+    res = []
+    while stack:
+        nums, path = stack.pop()
+        if not nums:
+            res.append(path)
 
-    return tuple(list(visited))
+        for i in range(len(nums)):
+            if i > 0 and nums[i] == nums[i-1]:
+                continue
+            newNums = nums[:i] + nums[i+1:]
+            newPath = path + [nums[i]]
+            stack.append((newNums, newPath))
+    return res
 
 nums = [1,2,3]
-print(permuteOnlyOne(nums))
+
+print(permuteUnique(0,nums))
