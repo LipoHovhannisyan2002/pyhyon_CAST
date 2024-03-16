@@ -3,12 +3,12 @@ def numberOfWeakCharacters(properties):
     for i in range(len(properties)):
         is_weak = False
         current_attack, current_defense = properties[i]
-        for j in range(len(properties)):
+        j = i-1
 
-            their_attack, other_defense = properties[j]
-            if their_attack > current_attack and other_defense > current_defense:
-                weak_count += 1
-                break
+        their_attack, other_defense = properties[j]
+        if their_attack > current_attack and other_defense > current_defense:
+            weak_count += 1
+            break
 
     return weak_count
 
