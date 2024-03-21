@@ -1,14 +1,14 @@
 def numberOfWeakCharacters(properties):
+    properties.sort(key=lambda x: (-x[0], x[1]))
+    
     weak_count = 0
-    for i in range(len(properties)):
-        is_weak = False
-        current_attack, current_defense = properties[i]
-        j = i-1
+    max_defense = float('-inf')
 
-        their_attack, other_defense = properties[j]
-        if their_attack > current_attack and other_defense > current_defense:
+    for attack, defense in properties:
+        if defense < max_defense:
             weak_count += 1
-            break
+        else:
+            max_defense = defense
 
     return weak_count
 
