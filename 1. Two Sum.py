@@ -1,18 +1,20 @@
 nums = [3, 3]
 target = 6
 
-
-
 def twoSum(nums, target):
-    for i in range(len(nums)):
+    left, right = 0, len(nums) - 1
 
-        for j in range(len(nums)):
-            if i == j:
-                continue
-            if nums[i] + nums[j] == target:
-                output.append(i)
-                output.append(j)
-                return output
+    while left < right:
+        current_sum = nums[left] + nums[right]
+        if current_sum == target:
+            return [left, right]
+        elif current_sum < target:
+            left += 1
+        else:
+            right -= 1
+
+    return None
+
 
 
 print(twoSum(nums, target))
