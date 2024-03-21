@@ -1,16 +1,21 @@
-s = "Hello World  "
+s = "Hello world   "
 
 
-def lengthOfLastWord( a):
+def lengthOfLastWord(a):
     result = False
-    splited = s.split()
-    i = len(splited)
-    for item in reversed(splited):
-        if item and (65 <= ord(item[-1]) <= 90) or (97 <= ord(item[-1]) <= 122):
+    splited_sent = s.split()
+    i = len(splited_sent)
+
+    for item in range(i-1,-1,-1):
+
+
+        if splited_sent[item] and (65 <= ord(splited_sent[item][-1]) <= 90) or (97 <= ord(splited_sent[item][-1]) <= 122):
+
             result = True
             break
-        i-=1
+        x = i -1
+
     if result:
-        return len(item)
+        return len(splited_sent[item])
 
 print(lengthOfLastWord(s))
